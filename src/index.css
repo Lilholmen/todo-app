@@ -2,5 +2,10 @@
   margin: 0;
   padding: 0;
   border: none;
-  box-sizing: border-box;
+}
+
+body {
+  background-color: #211e20;
+  color: #e9efec;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

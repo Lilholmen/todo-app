@@ -1,10 +1,11 @@
 import Todo from './Todo';
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <div>
-      TodoList is empty
-      <Todo />
+      {todos.map((todo, index) => (
+        <Todo key={index} text={todo} />
+      ))}
     </div>
   );
 };
