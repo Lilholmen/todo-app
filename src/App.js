@@ -1,30 +1,26 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodoList from './components/Todos/TodoList';
 import TodoForm from './components/Todos/TodoForm';
-import Button from './components/UI/Button';
 import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
 
-  const addTodoHandler = (todo) => {
-    if (todo.trim() !== '') setTodos([...todos, todo]);
-    console.log(todos);
+  const addTodoHandler = (text) => {
+    if (text.trim() !== '')
+      setTodos([...todos, { id: uuidv4(), body: text, isComplited: false }]);
   };
 
-  const deleteTodo = (event) => {
-    console.log(todos);
+  const deleteTodoHandler = (index) => {
+    setTodos(todos.filter((todo) => todo.id !== index));
   };
 
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
-      {todos.length ? (
-        <TodoList todos={todos} deleteTodo={deleteTodo} />
-      ) : (
-        'Todo List is empty'
-      )}
+      <TodoList todos={todos} deleteTodo={deleteTodoHandler} />
     </div>
   );
 }
