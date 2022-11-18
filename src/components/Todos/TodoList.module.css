@@ -1,3 +1,9 @@
 .todoListContainer {
   padding: 10px;
 }
+
+.todoListEmpty {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

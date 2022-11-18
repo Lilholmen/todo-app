@@ -47,7 +47,6 @@ function App() {
       <TodoForm addTodo={addTodoHandler} />
       {!!todos.length && (
         <TodoActions
-          loadTodos={loadTodosHandler}
           completedTodosExist={!!completedTodosCounter}
           resetTodos={resetTodosHandler}
           clearCompleted={clearCompletedHandler}
@@ -55,6 +54,7 @@ function App() {
       )}
       <TodoList
         todos={todos}
+        loadTodos={loadTodosHandler}
         deleteTodo={deleteTodoHandler}
         toggleTodo={toggleTodoHandler}
       />
