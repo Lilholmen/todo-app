@@ -27,6 +27,10 @@ function App() {
     );
   };
 
+  const loadTodosHandler = (loadedTodos) => {
+    setTodos(loadedTodos);
+  };
+
   const resetTodosHandler = () => {
     setTodos([]);
   };
@@ -43,6 +47,7 @@ function App() {
       <TodoForm addTodo={addTodoHandler} />
       {!!todos.length && (
         <TodoActions
+          loadTodos={loadTodosHandler}
           completedTodosExist={!!completedTodosCounter}
           resetTodos={resetTodosHandler}
           clearCompleted={clearCompletedHandler}
